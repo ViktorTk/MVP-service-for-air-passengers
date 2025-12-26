@@ -1,11 +1,7 @@
 import ServiceItem from './ServiceItem/ServiceItem'
 import { MOCK_SERVICES } from '../../mockData/mockData'
-import { useDispatch } from 'react-redux'
-import { clearCart } from '../../features/cartSlice'
 
 function ServiceList() {
-  const dispatch = useDispatch()
-
   const services = MOCK_SERVICES.map((item) => (
     <ServiceItem
       key={item.id}
@@ -15,14 +11,7 @@ function ServiceList() {
     />
   ))
 
-  return (
-    <>
-      <ul>{services}</ul>
-      <button onClick={() => dispatch(clearCart())}>
-        Очистить список услуг
-      </button>
-    </>
-  )
+  return <ul className="service-list">{services}</ul>
 }
 
 export default ServiceList

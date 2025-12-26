@@ -1,24 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { serviceTypeItem, serviceType } from '../types'
+import type { serviceType, serviceTypeItem } from '../types'
 
 interface CartState {
   items: serviceTypeItem[]
 }
 
-export const getLocalStorage = () => {
-  const airLineServise = localStorage.getItem('air-line-service')
-  return airLineServise ? JSON.parse(airLineServise) : []
-}
-export const setLocalStorage = (data: serviceTypeItem[]) => {
-  localStorage.setItem('air-line-service', JSON.stringify(data))
-}
-export const clearLocalStorage = () => {
-  localStorage.removeItem('air-line-service')
-}
-
 const initialState: CartState = {
-  items: getLocalStorage(),
+  items: [],
 }
 
 const cartSlice = createSlice({
@@ -34,16 +23,15 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, count: 1 })
       }
-
-      setLocalStorage(state.items)
     },
-
     clearCart: (state) => {
       state.items = []
-      clearLocalStorage()
+    },
+    hydrateCart: (state, action: PayloadAction<serviceTypeItem[]>) => {
+      state.items = action.payload
     },
   },
 })
 
-export const { addService, clearCart } = cartSlice.actions
+export const { addService, clearCart, hydrateCart } = cartSlice.actions
 export default cartSlice.reducer
