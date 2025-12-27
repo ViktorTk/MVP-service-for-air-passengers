@@ -35,7 +35,7 @@ const startAppListening =
 
 startAppListening({
   actionCreator: addService,
-  effect: (action, listenerApi) => {
+  effect: (_action, listenerApi) => {
     const state = listenerApi.getState()
     saveToLocalStorage(state.cart.items)
   },
@@ -52,7 +52,7 @@ startAppListening({
 
 startAppListening({
   actionCreator: minusCart,
-  effect: (action, listenerApi) => {
+  effect: (_action, listenerApi) => {
     const state = listenerApi.getState()
     saveToLocalStorage(state.cart.items)
   },
@@ -60,7 +60,7 @@ startAppListening({
 
 startAppListening({
   actionCreator: plusCart,
-  effect: (action, listenerApi) => {
+  effect: (_action, listenerApi) => {
     const state = listenerApi.getState()
     saveToLocalStorage(state.cart.items)
   },
