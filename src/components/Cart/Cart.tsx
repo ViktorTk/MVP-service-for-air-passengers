@@ -16,19 +16,26 @@ function Cart() {
 
   return (
     <>
-      <button
-        className="cart-button"
-        onClick={() => {
-          setOpenModal(true)
-        }}
-      >
-        <Icon path={mdiCartVariant} size={1.15} className="cart-button__icon" />
-        {cartItems.length > 0 ? (
-          <span className="cart-button__text">{cartItems.length}</span>
-        ) : (
-          ''
-        )}
-      </button>
+      <div className="service-title-card_block">
+        <h2>Перечень услуг:</h2>
+        <button
+          className="cart-button"
+          onClick={() => {
+            setOpenModal(true)
+          }}
+        >
+          <Icon
+            path={mdiCartVariant}
+            size={1.15}
+            className="cart-button__icon"
+          />
+          {cartItems.length > 0 ? (
+            <span className="cart-button__text">{cartItems.length}</span>
+          ) : (
+            ''
+          )}
+        </button>
+      </div>
       <Modal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}

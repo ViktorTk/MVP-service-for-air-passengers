@@ -43,8 +43,16 @@ button:active {
   transform: scale(0.85);
 }
 
+.service-title-card_block {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #fbfbfb60;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .cart-button {
-  align-self: flex-end;
   position: relative;
   padding: 0.94rem 2.6rem;
 }
