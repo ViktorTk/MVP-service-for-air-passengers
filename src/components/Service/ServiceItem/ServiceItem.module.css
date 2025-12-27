@@ -1,0 +1,14 @@
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 0.63rem;
+
+  .service-item__price {
+    border-bottom: 1px solid white;
+    padding: 0 0.94rem;
+  }
+
+  button {
+    margin-left: auto;
+  }
+}

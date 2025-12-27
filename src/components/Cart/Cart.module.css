@@ -1,0 +1,60 @@
+.cart-button__clear,
+.buy-card {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.buy-card {
+  background-color: #14ae5c;
+}
+
+.success-message {
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-message h3 {
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.success-message strong {
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.service-title-card_block {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #fbfbfb60;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-button {
+  position: relative;
+  padding: 0.94rem 2.6rem;
+}
+
+.cart-button__text {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  background-color: #14ae5c;
+  padding: 1.25rem;
+  border-radius: 0.375rem;
+  aspect-ratio: 1/1;
+}
+
+.cart-button:has(.cart-button__text) {
+  .cart-button__icon {
+    transform: translateX(-90%);
+  }
+}

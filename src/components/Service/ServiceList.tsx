@@ -1,5 +1,6 @@
 import ServiceItem from './ServiceItem/ServiceItem'
 import { MOCK_SERVICES } from '../../mockData/mockData'
+import style from './ServiceList.module.css'
 
 function ServiceList() {
   const services = MOCK_SERVICES.map((item) => (
@@ -11,7 +12,7 @@ function ServiceList() {
     />
   ))
 
-  return <ul className="service-list">{services}</ul>
+  return <ul className={style['service-list']}>{services}</ul>
 }
 
 export default ServiceList

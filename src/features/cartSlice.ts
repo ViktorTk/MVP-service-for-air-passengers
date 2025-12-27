@@ -30,7 +30,7 @@ const cartSlice = createSlice({
     hydrateCart: (state, action: PayloadAction<serviceTypeItem[]>) => {
       state.items = action.payload
     },
-    minusCard: (state, action: PayloadAction<serviceTypeItem>) => {
+    minusCart: (state, action: PayloadAction<serviceTypeItem>) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       )
@@ -38,11 +38,13 @@ const cartSlice = createSlice({
         existingItem.count -= 1
 
         if (existingItem.count <= 0) {
-          state.items.filter((item) => item.id !== action.payload.id)
+          state.items = state.items.filter(
+            (item) => item.id !== action.payload.id
+          )
         }
       }
     },
-    plusCard: (state, action: PayloadAction<serviceTypeItem>) => {
+    plusCart: (state, action: PayloadAction<serviceTypeItem>) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       )
@@ -53,6 +55,6 @@ const cartSlice = createSlice({
   },
 })
 
-export const { addService, clearCart, hydrateCart, minusCard, plusCard } =
+export const { addService, clearCart, hydrateCart, minusCart, plusCart } =
   cartSlice.actions
 export default cartSlice.reducer

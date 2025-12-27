@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import type { RootState } from '../../../app/store.ts'
-import { minusCard, plusCard } from '../../../features/cartSlice.ts'
-import style from './CartItem.module.css'
+import { minusCart, plusCart } from '../../../features/cartSlice.ts'
+import style from './CartContent.module.css'
 
-function CartItem() {
+function CartContent() {
   const cartItems = useSelector((state: RootState) => state.cart.items)
   const dispatch = useDispatch()
 
@@ -14,8 +14,8 @@ function CartItem() {
       <td>{el.count}</td>
       <td>{el.price * el.count}</td>
       <td>
-        <span onClick={() => dispatch(minusCard(el))}>-</span> /{' '}
-        <span onClick={() => dispatch(plusCard(el))}>+</span>
+        <button onClick={() => dispatch(minusCart(el))}>-</button> /{' '}
+        <button onClick={() => dispatch(plusCart(el))}>+</button>
       </td>
     </tr>
   ))
@@ -44,4 +44,4 @@ function CartItem() {
   )
 }
 
-export default CartItem
+export default CartContent

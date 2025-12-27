@@ -1,7 +1,7 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit'
 import type { TypedStartListening } from '@reduxjs/toolkit'
 import type { RootState } from '../app/store'
-import { addService, clearCart } from './cartSlice'
+import { addService, clearCart, minusCart, plusCart } from './cartSlice'
 import type { serviceTypeItem } from '../types'
 
 const STORAGE_KEY = 'air-line-service'
@@ -47,6 +47,22 @@ startAppListening({
     if (typeof window !== 'undefined') {
       localStorage.removeItem(STORAGE_KEY)
     }
+  },
+})
+
+startAppListening({
+  actionCreator: minusCart,
+  effect: (action, listenerApi) => {
+    const state = listenerApi.getState()
+    saveToLocalStorage(state.cart.items)
+  },
+})
+
+startAppListening({
+  actionCreator: plusCart,
+  effect: (action, listenerApi) => {
+    const state = listenerApi.getState()
+    saveToLocalStorage(state.cart.items)
   },
 })
 
